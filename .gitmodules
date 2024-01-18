@@ -1,0 +1,6 @@
+[submodule "nlspn"]
+	path = nlspn
+	url = git@github.com:chandlj/nlspn.git
+[submodule "completionformer"]
+	path = completionformer
+	url = git@github.com:chandlj/completionformer.git
