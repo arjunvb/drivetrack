@@ -771,7 +771,7 @@ def main(
     try:
         if local_dataset_path is not None:
             filenames = glob.glob(
-                os.path.join(output_dir, split, "camera_image", "*.parquet")
+                os.path.join(local_dataset_path, split, "camera_image", "*.parquet")
             )
         elif fs is not None:
             filenames = fs.glob(
@@ -810,6 +810,9 @@ def main(
                 f.write(f"{context_name}\n")
 
             client.restart()
+    except Exception as e:
+        print(e)
+        raise e
     finally:
         if (
             depth_method is DepthMethod.NLSPN
@@ -834,7 +837,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=str)
     parser.add_argument("--local-dataset-path", type=str, default=None)
-    parser.add_argument("--use-gcs", action="store_true")
+    parser.add_argument("--use-gcsfs", action="store_true")
     parser.add_argument("--split", type=str, default="training")
     parser.add_argument("--occlusion-factor", type=float, default=0.95)
     parser.add_argument("--distance-filter", type=float, default=50.0)
@@ -865,7 +868,7 @@ if __name__ == "__main__":
     else:
         raise ValueError(f"Unknown depth method {args.depth_method}")
 
-    fs = gcsfs.GCSFileSystem(token="google_default") if args.use_gcs else None
+    fs = gcsfs.GCSFileSystem(token="google_default") if args.use_gcsfs else None
 
     os.makedirs(f"{args.output_dir}/{args.version}/{args.split}", exist_ok=True)
     # Emulate touch
@@ -876,6 +879,7 @@ if __name__ == "__main__":
         client,
         fs=fs,
         output_dir=args.output_dir,
+        local_dataset_path=args.local_dataset_path,
         version=args.version,
         split=args.split,
         occlusion_factor=args.occlusion_factor,
