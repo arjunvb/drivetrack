@@ -9,6 +9,7 @@ git submodule init --update
 # Install dependencies
 conda env create -f environment.yml
 conda activate drivetrack
+pip install -r requirements.txt --no-dependencies
 
 # Build NLSPN DeformConv
 cd nlspn/src/model/deformconv
@@ -21,13 +22,7 @@ sh make.sh
 cd ../../../../
 ```
 
-In order to fix some bugs, you also need to upgrade the following packages after creating the conda environment:
-
-```sh
-pip install --upgrade numpy dask[distributed] pyarrow 
-```
-
-You will get warnings about dependencies not matching with waymo-open-dataset. It is safe to ignore these warnings.
+Note that the depdencies that ship with the Waymo SDK need to be upgraded, which is why we install using pip and the `--no-dependencies` flag.
 
 ## Getting Started
 
