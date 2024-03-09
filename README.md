@@ -26,6 +26,8 @@ Note that the depdencies that ship with the Waymo SDK need to be upgraded, which
 
 ## Getting Started
 
+First, obtain access to the [Waymo Open Dataset ](https://waymo.com/open/) if you don't have access already.
+
 An example of generating DriveTrack (requires access to the Waymo Open Dataset in GCS):
 
 ```sh
