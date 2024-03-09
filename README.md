@@ -49,3 +49,22 @@ python generate_drivetrack.py \
 ```
 
 A full list of arguments can be found in `generate_drivetrack.py`.
+
+## Attribution
+DriveTrack was made using the Waymo Open Dataset, provide by Waymo LLC under license terms available at [waymo.com/open](https://waymo.com/open/).
+
+## Citation
+If you use this code or our data for your research, please cite:
+
+**DriveTrack: A Benchmark for Long-Range Point Tracking in Real-World Videos**\
+Arjun Balasingam, Joseph Chandler, Chenning Li, Zhoutong Zhang, Hari Balakrishnan.\
+_CVPR 2024_
+
+```
+@inproceedings{balasingam2024drivetrack,
+ author = {Arjun Balasingam and Joseph Chandler and Chenning Li and Zhoutong Zhang and Hari Balakrishnan},
+ title = {DriveTrack: A Benchmark for Long-Range Point Tracking in Real-World Videos},
+ booktitle = {CVPR},
+ year = {2024}
+}
+```
