@@ -60,7 +60,7 @@ If you use this code or our data for your research, please cite:
 
 **DriveTrack: A Benchmark for Long-Range Point Tracking in Real-World Videos**\
 Arjun Balasingam, Joseph Chandler, Chenning Li, Zhoutong Zhang, Hari Balakrishnan.\
-_CVPR 2024_
+_To appear at CVPR 2024_
 
 ```
 @inproceedings{balasingam2024drivetrack,
